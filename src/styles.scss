@@ -12,37 +12,8 @@ body {
   background-color: beige;
 }
 
-img {
-  position: sticky;
-  z-index: 1;
-}
-
-a:hover {
-  color: green;
-}
-input:focus {
-  border-color: purple;
-}
-a:link {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-a:visited {
-  color: black;
-}
-
 @media only print {
   body {
     background: none;
   }
-}
-
-p {
-  background-color: grey;
-  transition: all 2s;
-}
-p:hover {
-  background-color: brown;
-  margin-right: 20px;
 }
