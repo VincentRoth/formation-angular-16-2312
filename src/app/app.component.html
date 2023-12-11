@@ -1,1 +1,55 @@
 <h1>{{ title }} app is running!</h1>
+
+<h2>Cliniques</h2>
+<p>
+  Venez dans nos cliniques.<br />
+  Nous sommes géniaux !
+</p>
+
+<h2>Animaux</h2>
+<p>Nous soignons :</p>
+<ul>
+  <li>Chats</li>
+  <li>Chiens</li>
+  <li>NAC</li>
+</ul>
+
+<img src="/assets/cat.jpg" width="200px" alt="Image de chat" />
+<a href="https://fr.wikipedia.org/wiki/Chartreux_(chat)" target="_blank">
+  Le chat (Wikipedia)
+</a>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Clinique</th>
+      <th>Adresse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dijon</td>
+      <td>1 rue de la République</td>
+    </tr>
+    <tr>
+      <td>Toulouse</td>
+      <td>1 rue de Alsace Lorraine</td>
+    </tr>
+  </tbody>
+</table>
+
+<form action="/login" method="post">
+  <label for="login">Identifiant</label>
+  <input type="text" id="login" name="login" />
+
+  <label for="password">Mot de passe</label>
+  <input type="password" id="password" name="password" />
+
+  <label for="gender">Genre</label>
+  <select id="gender" name="gender">
+    <option selected>H</option>
+    <option>F</option>
+  </select>
+
+  <button type="submit">Envoyer</button>
+</form>
