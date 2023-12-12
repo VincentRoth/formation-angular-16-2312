@@ -4,5 +4,6 @@
   Vétérinaire : {{ animal.veterinarian }}<br />
   Email : <a appMailTo>{{ animal.email }}</a
   ><br />
-  Téléphone : {{ animal.phoneNumber }} Commentaire : {{ animal.comment }}<br />
+  Téléphone : {{ animal.phoneNumber | formatPhone : "-" }}<br />
+  Commentaire : {{ animal.comment }}
 </p>
