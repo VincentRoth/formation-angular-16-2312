@@ -1,3 +1,8 @@
 <ul>
-  <li *ngFor="let animal of animals; trackBy: trackById">{{ animal.name }}</li>
+  <li
+    *ngFor="let animal of animals; trackBy: trackById; let isEven = even"
+    [ngClass]="{ even: isEven }"
+  >
+    {{ animal.name }}
+  </li>
 </ul>
