@@ -13,4 +13,19 @@ export class AnimalService {
       species: 'cat',
     };
   }
+
+  getAll(): Animal[] {
+    return [
+      {
+        id: 1,
+        name: 'Mon animal 1',
+        species: 'cat',
+      },
+      {
+        id: 2,
+        name: 'Mon animal 2',
+        species: 'cat',
+      },
+    ];
+  }
 }
