@@ -3,19 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AnimalDetailsComponent } from './animal/animal-details/animal-details.component';
-import { AnimalListComponent } from './animal/animal-list/animal-list.component';
-import { FormatPhonePipe } from './shared/format-phone.pipe';
+import { AnimalModule } from './animal/animal.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AnimalDetailsComponent,
-    AnimalListComponent,
-  ],
-  providers: [FormatPhonePipe],
+  imports: [BrowserModule, AppRoutingModule, AnimalModule],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -2,7 +2,6 @@ import { AfterViewInit, Directive, ElementRef } from '@angular/core';
 
 @Directive({
   selector: 'a[appMailTo]',
-  standalone: true,
 })
 export class MailToDirective implements AfterViewInit {
   constructor(private elementRef: ElementRef<HTMLAnchorElement>) {}
