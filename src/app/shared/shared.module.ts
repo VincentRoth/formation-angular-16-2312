@@ -7,5 +7,6 @@ import { FormatPhonePipe } from './format-phone.pipe';
   declarations: [MailToDirective, FormatPhonePipe],
   imports: [CommonModule],
   exports: [MailToDirective, FormatPhonePipe],
+  providers: [FormatPhonePipe],
 })
 export class SharedModule {}
