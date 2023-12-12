@@ -7,7 +7,7 @@ import { Animal } from '../../shared/api/animal';
   styleUrls: ['./animal-item.component.scss'],
 })
 export class AnimalItemComponent {
-  @Input() model: Animal;
+  @Input({ required: true }) model: Animal;
   @Output() deletion = new EventEmitter<void>();
 
   onDelete(): void {
