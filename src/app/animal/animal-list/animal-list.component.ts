@@ -16,6 +16,11 @@ export class AnimalListComponent implements OnInit {
     this.animals = this.animalService.getAll();
   }
 
+  onItemDeletion(animal: Animal): void {
+    const index = this.animals.indexOf(animal);
+    this.animals.splice(index, 1);
+  }
+
   trackById: TrackByFunction<Animal> = (_index: number, item: Animal): number =>
     item.id;
 }

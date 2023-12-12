@@ -3,6 +3,9 @@
     *ngFor="let animal of animals; trackBy: trackById; let isEven = even"
     [ngClass]="{ even: isEven }"
   >
-    <app-animal-item [model]="animal"></app-animal-item>
+    <app-animal-item
+      [model]="animal"
+      (deletion)="onItemDeletion(animal)"
+    ></app-animal-item>
   </li>
 </ul>

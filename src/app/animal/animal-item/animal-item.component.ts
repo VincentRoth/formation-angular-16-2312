@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Animal } from '../../shared/api/animal';
 
 @Component({
@@ -8,4 +8,9 @@ import { Animal } from '../../shared/api/animal';
 })
 export class AnimalItemComponent {
   @Input() model: Animal;
+  @Output() deletion = new EventEmitter<void>();
+
+  onDelete(): void {
+    this.deletion.emit();
+  }
 }
