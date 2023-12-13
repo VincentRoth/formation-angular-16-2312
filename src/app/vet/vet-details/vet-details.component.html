@@ -1,6 +1,9 @@
-<p *ngIf="vet; else loading">
-  Nom : {{ vet.firstName }}<br />
-  Prénom : {{ vet.lastName }}
-</p>
+<ng-container *ngIf="vet; else loading">
+  <p>
+    Nom : {{ vet.firstName }}<br />
+    Prénom : {{ vet.lastName }}
+  </p>
+  <a [routerLink]="['..', 'form', vet.id]">Modifier</a>
+</ng-container>
 
 <ng-template #loading>Chargement...</ng-template>

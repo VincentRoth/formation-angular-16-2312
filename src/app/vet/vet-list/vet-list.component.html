@@ -2,6 +2,7 @@
   <li *ngFor="let vet of vets; trackBy: trackById">
     {{ vet.firstName }} {{ vet.lastName }}
     <a [routerLink]="[vet.id]">Voir</a>
+    <a [routerLink]="['form', vet.id]">Modifier</a>
     <button (click)="onItemDeletion(vet)">Supprimer</button>
   </li>
 </ul>

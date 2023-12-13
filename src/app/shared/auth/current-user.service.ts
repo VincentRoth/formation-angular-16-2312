@@ -5,7 +5,7 @@ import { Right } from './right';
   providedIn: 'root',
 })
 export class CurrentUserService {
-  private rights = [Right.ANIMAL_GET];
+  private rights = [Right.ANIMAL_GET, Right.VET_GET];
 
   hasRight(right: Right): boolean {
     return this.rights.includes(right);
