@@ -3,7 +3,7 @@ import { Animal } from '../../shared/api/animal';
 import { AnimalService } from '../../shared/api/animal.service';
 import { FormatPhonePipe } from '../../shared/format-phone.pipe';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { map, Observable, switchMap, takeUntil } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 import { AbstractBaseComponent } from '../../shared/abstract-base-component';
 
 @Component({
@@ -15,7 +15,7 @@ export class AnimalDetailsComponent
   extends AbstractBaseComponent
   implements OnInit
 {
-  animal?: Animal;
+  animal$?: Observable<Animal>;
 
   constructor(
     private animalService: AnimalService,
@@ -28,14 +28,9 @@ export class AnimalDetailsComponent
   override ngOnInit(): void {
     super.ngOnInit();
 
-    this.activatedRoute.paramMap
-      .pipe(
-        map((params: ParamMap): number => Number(params.get('id'))),
-        switchMap(
-          (id: number): Observable<Animal> => this.animalService.get(id)
-        ),
-        takeUntil(this.unsubscribeAll$)
-      )
-      .subscribe((data) => (this.animal = data));
+    this.animal$ = this.activatedRoute.paramMap.pipe(
+      map((params: ParamMap): number => Number(params.get('id'))),
+      switchMap((id: number): Observable<Animal> => this.animalService.get(id))
+    );
   }
 }
