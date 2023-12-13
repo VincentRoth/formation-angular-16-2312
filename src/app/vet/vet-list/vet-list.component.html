@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let vet of vets; trackBy: trackById">
+    {{ vet.firstName }} {{ vet.lastName }}
+    <a [routerLink]="[vet.id]">Voir</a>
+    <button (click)="onItemDeletion(vet)">Supprimer</button>
+  </li>
+</ul>
