@@ -4,7 +4,7 @@ import { AnimalDetailsComponent } from './animal-details/animal-details.componen
 import { AnimalListComponent } from './animal-list/animal-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { AnimalItemComponent } from './animal-item/animal-item.component';
-import { RouterModule } from '@angular/router';
+import { AnimalRoutingModule } from './animal-routing.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
     AnimalListComponent,
     AnimalItemComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule],
+  imports: [CommonModule, SharedModule, AnimalRoutingModule],
   exports: [],
 })
 export class AnimalModule {}
