@@ -6,17 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnimalModule } from './animal/animal.module';
 import { TimeInterceptor } from './shared/time.interceptor';
-import { VetModule } from './vet/vet.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AnimalModule,
-    VetModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, AnimalModule, HttpClientModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TimeInterceptor, multi: true },
   ],
