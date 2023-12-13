@@ -1,11 +1,15 @@
-<p *ngIf="animal$ | async as animal; else loading">
-  Nom : {{ animal.name }}<br />
-  Espèce : {{ animal.species }}<br />
-  Vétérinaire : {{ animal.veterinarian }}<br />
-  Email : <a [appMailTo]="animal.email">{{ animal.email }}</a
-  ><br />
-  Téléphone : {{ animal.phoneNumber | formatPhone : "-" }}<br />
-  Commentaire : {{ animal.comment }}
-</p>
+<ng-container *ngIf="animal$ | async as animal; else loading">
+  <p>
+    Nom : {{ animal.name }}<br />
+    Espèce : {{ animal.species }}<br />
+    Vétérinaire : {{ animal.veterinarian }}<br />
+    Email : <a [appMailTo]="animal.email">{{ animal.email }}</a
+    ><br />
+    Téléphone : {{ animal.phoneNumber | formatPhone : "-" }}<br />
+    Commentaire : {{ animal.comment }}
+  </p>
+
+  <a [routerLink]="['..', 'form', animal.id]">Modifier</a>
+</ng-container>
 
 <ng-template #loading>Chargement...</ng-template>

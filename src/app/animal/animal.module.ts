@@ -6,6 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { AnimalItemComponent } from './animal-item/animal-item.component';
 import { AnimalComponent } from './animal.component';
 import { AnimalRoutingModule } from './animal-routing.module';
+import { AnimalFormComponent } from './animal-form/animal-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,8 +15,9 @@ import { AnimalRoutingModule } from './animal-routing.module';
     AnimalListComponent,
     AnimalItemComponent,
     AnimalComponent,
+    AnimalFormComponent,
   ],
-  imports: [CommonModule, SharedModule, AnimalRoutingModule],
+  imports: [CommonModule, SharedModule, AnimalRoutingModule, FormsModule],
   exports: [],
 })
 export class AnimalModule {}

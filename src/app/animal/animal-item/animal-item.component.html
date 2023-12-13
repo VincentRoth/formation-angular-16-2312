@@ -1,4 +1,5 @@
 {{ model.name }}
 
 <a [routerLink]="['/animals', model.id]">Voir</a>
+<a [routerLink]="['/animals', 'form', model.id]">Modifier</a>
 <button (click)="onDelete()">Supprimer</button>

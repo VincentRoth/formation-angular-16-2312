@@ -5,6 +5,7 @@ import { AnimalDetailsComponent } from './animal-details/animal-details.componen
 import { AnimalComponent } from './animal.component';
 import { hasRightGuard } from '../shared/auth/has-right.guard';
 import { Right } from '../shared/auth/right';
+import { AnimalFormComponent } from './animal-form/animal-form.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,8 @@ const routes: Routes = [
     data: { right: Right.ANIMAL_GET },
     children: [
       { path: '', component: AnimalListComponent },
+      { path: 'form', component: AnimalFormComponent },
+      { path: 'form/:id', component: AnimalFormComponent },
       { path: ':id', component: AnimalDetailsComponent },
     ],
   },
