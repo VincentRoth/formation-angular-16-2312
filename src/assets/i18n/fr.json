@@ -1,0 +1,7 @@
+{
+  "title": "L'app {{ title }} est lancée !",
+  "menu": {
+    "home": "Accueil",
+    "veterinarian": "Vétos"
+  }
+}

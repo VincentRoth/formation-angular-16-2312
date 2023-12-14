@@ -1,9 +1,14 @@
 <mat-toolbar color="primary">
-  <h1>{{ title }} app is running!</h1>
+  <h1>{{ "title" | translate : { title } }}</h1>
   <nav>
-    <a mat-button routerLink="/">Accueil</a>
-    <a *ngIf="hasVetAccess" mat-button routerLink="/vets">Vétérinaires</a>
+    <a mat-button routerLink="/">{{ "menu.home" | translate }}</a>
+    <a *ngIf="hasVetAccess" mat-button routerLink="/vets">{{
+      "menu.veterinarian" | translate
+    }}</a>
   </nav>
+
+  <button mat-button (click)="changeLang('fr')">FR</button>
+  <button mat-button (click)="changeLang('en')">EN</button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

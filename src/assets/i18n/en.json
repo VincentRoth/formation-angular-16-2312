@@ -1,0 +1,7 @@
+{
+  "title": "{{ title }} app is running!",
+  "menu": {
+    "home": "Home",
+    "veterinarian": "Vets"
+  }
+}
