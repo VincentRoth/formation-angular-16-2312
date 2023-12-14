@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { VeterinarianService } from '../../shared/api/veterinarian.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Veterinarian } from '../../shared/api/veterinarian';
+import { AbstractBaseComponent } from '../../shared/abstract-base-component';
+import { takeUntil } from 'rxjs';
 
 interface VetFormType {
   firstName: FormControl<string>;
@@ -14,7 +16,7 @@ interface VetFormType {
   templateUrl: './vet-form.component.html',
   styleUrls: ['./vet-form.component.scss'],
 })
-export class VetFormComponent implements OnInit {
+export class VetFormComponent extends AbstractBaseComponent implements OnInit {
   vetForm: FormGroup<VetFormType>;
   private id: number;
 
@@ -22,9 +24,13 @@ export class VetFormComponent implements OnInit {
     private vetService: VeterinarianService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    super();
+  }
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
+    super.ngOnInit();
+
     const id: number = Number(this.activatedRoute.snapshot.paramMap.get('id'));
 
     if (id) {
@@ -62,5 +68,12 @@ export class VetFormComponent implements OnInit {
       ]),
       lastName: new FormControl(data.lastName, [Validators.required]),
     });
+
+    this.vetForm
+      .get('firstName')
+      .valueChanges.pipe(takeUntil(this.unsubscribeAll$))
+      .subscribe((firstName: string) => {
+        console.log('firstName change', firstName);
+      });
   }
 }

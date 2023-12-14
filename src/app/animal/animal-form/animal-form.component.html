@@ -4,6 +4,7 @@
     id="name"
     name="name"
     [(ngModel)]="animal.name"
+    (ngModelChange)="onNameChange()"
     required
     #nameCtrl="ngModel"
   />

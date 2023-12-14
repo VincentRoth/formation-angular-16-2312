@@ -29,6 +29,10 @@ export class AnimalFormComponent implements OnInit {
     }
   }
 
+  onNameChange(): void {
+    console.log('name change', this.animal.name);
+  }
+
   onSubmit(): void {
     if (this.animalForm.form.invalid) {
       return;
