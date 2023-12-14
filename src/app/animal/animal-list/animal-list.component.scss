@@ -1,3 +1,9 @@
-.even {
-  background-color: aquamarine;
+:host {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+app-animal-item {
+  width: calc(50% - 1em);
+  margin: 0.5em;
 }

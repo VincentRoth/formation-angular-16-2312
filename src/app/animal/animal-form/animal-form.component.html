@@ -1,51 +1,53 @@
 <form *ngIf="animal" (ngSubmit)="onSubmit()" #animalForm="ngForm">
-  <label for="name">Nom</label>
-  <input
-    id="name"
-    name="name"
-    [(ngModel)]="animal.name"
-    (ngModelChange)="onNameChange()"
-    required
-    #nameCtrl="ngModel"
-  />
-  <br />
-  <p *ngIf="animalForm.submitted && nameCtrl.hasError('required')">
-    Champ requis
-  </p>
+  <mat-form-field>
+    <mat-label>Nom</mat-label>
+    <input
+      matInput
+      name="name"
+      [(ngModel)]="animal.name"
+      (ngModelChange)="onNameChange()"
+      required
+      #nameCtrl="ngModel"
+    />
+    <mat-error *ngIf="nameCtrl.hasError('required')">Champ requis </mat-error>
+  </mat-form-field>
 
-  <label for="species">Espèce</label>
-  <input id="species" name="species" [(ngModel)]="animal.species" required />
-  <br />
-  <p
-    *ngIf="
-      animalForm.submitted && animalForm.form.hasError('required', 'species')
-    "
-  >
-    Champ requis
-  </p>
+  <mat-form-field>
+    <mat-label>Espèce</mat-label>
+    <input
+      matInput
+      name="species"
+      [(ngModel)]="animal.species"
+      required
+      #speciesCtrl="ngModel"
+    />
+    <mat-error *ngIf="speciesCtrl.hasError('required')"
+      >Champ requis
+    </mat-error>
+  </mat-form-field>
 
-  <label for="veterinarian">Vétérinaire</label>
-  <input
-    id="veterinarian"
-    name="veterinarian"
-    [(ngModel)]="animal.veterinarian"
-  />
-  <br />
+  <mat-form-field>
+    <mat-label>Vétérinaire</mat-label>
+    <input matInput name="veterinarian" [(ngModel)]="animal.veterinarian" />
+  </mat-form-field>
 
-  <label for="email">Email</label>
-  <input id="email" name="email" [(ngModel)]="animal.email" email />
-  <br />
-  <p *ngIf="animalForm.submitted && animalForm.form.hasError('email', 'email')">
-    Format email requis
-  </p>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput name="email" [(ngModel)]="animal.email" email />
+    <mat-error *ngIf="animalForm.form.hasError('email', 'email')">
+      Format email requis
+    </mat-error>
+  </mat-form-field>
 
-  <label for="phoneNumber">Téléphone</label>
-  <input id="phoneNumber" name="phoneNumber" [(ngModel)]="animal.phoneNumber" />
-  <br />
+  <mat-form-field>
+    <mat-label>Téléphone</mat-label>
+    <input matInput name="phoneNumber" [(ngModel)]="animal.phoneNumber" />
+  </mat-form-field>
 
-  <label for="comment">Commentaire</label>
-  <textarea id="comment" name="comment" [(ngModel)]="animal.comment"></textarea>
-  <br />
+  <mat-form-field>
+    <mat-label>Commentaire</mat-label>
+    <textarea matInput name="comment" [(ngModel)]="animal.comment"></textarea>
+  </mat-form-field>
 
-  <button type="submit">Envoyer</button>
+  <button mat-button color="primary" type="submit">Envoyer</button>
 </form>
