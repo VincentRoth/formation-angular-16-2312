@@ -1,11 +1,25 @@
-<form *ngIf="vetForm" [formGroup]="vetForm" (ngSubmit)="onSubmit()">
+<form
+  *ngIf="vetForm"
+  [formGroup]="vetForm"
+  (ngSubmit)="onSubmit()"
+  #ngForm="ngForm"
+>
   <label for="firstName">Prénom</label>
   <input id="firstName" formControlName="firstName" />
   <br />
+  <p *ngIf="ngForm.submitted && vetForm.get('firstName').hasError('required')">
+    Champ requis
+  </p>
+  <p *ngIf="ngForm.submitted && vetForm.get('firstName').hasError('minlength')">
+    Minimum de {{ vetForm.get("firstName").errors["minlength"].requiredLength }}
+  </p>
 
   <label for="lastName">Nom</label>
   <input id="lastName" formControlName="lastName" />
   <br />
+  <p *ngIf="ngForm.submitted && vetForm.hasError('required', 'lastName')">
+    Champ requis
+  </p>
 
   <button type="submit">Envoyer</button>
 </form>
