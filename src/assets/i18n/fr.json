@@ -1,4 +1,5 @@
 {
+  "langChoice": ["Language", "Langue", "Sprache", "语言"],
   "title": "L'app {{ title }} est lancée !",
   "menu": {
     "home": "Accueil",

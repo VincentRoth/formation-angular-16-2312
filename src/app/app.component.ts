@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CurrentUserService } from './shared/auth/current-user.service';
 import { Right } from './shared/auth/right';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,9 +8,12 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   hasVetAccess: boolean;
+  langChoices: string[];
+  langIndex: number;
   title = 'veterinarian2312';
+  private intervalRef: any;
 
   constructor(
     private currentUserService: CurrentUserService,
@@ -19,6 +22,24 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.hasVetAccess = this.currentUserService.hasRight(Right.VET_GET);
+
+    this.langIndex = 0;
+    this.translateService
+      .get('langChoice')
+      .subscribe((langChoices: string[]) => {
+        this.langChoices = langChoices;
+      });
+
+    this.intervalRef = setInterval(() => {
+      this.langIndex++;
+      if (!this.langChoices || this.langIndex >= this.langChoices?.length) {
+        this.langIndex = 0;
+      }
+    }, 2_000);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalRef);
   }
 
   changeLang(lang: string): void {

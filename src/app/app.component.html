@@ -9,6 +9,8 @@
 
   <button mat-button (click)="changeLang('fr')">FR</button>
   <button mat-button (click)="changeLang('en')">EN</button>
+
+  <span>{{ langChoices?.[langIndex] }}</span>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
