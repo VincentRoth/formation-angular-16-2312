@@ -1,3 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 nav a {
   margin: 0 4px;
 
@@ -7,4 +13,29 @@ nav a {
   &:last-child {
     margin-right: 0;
   }
+}
+
+@keyframes cat-animation {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+img {
+  max-width: 80px;
+  margin: 12px;
+}
+
+img:hover {
+  /*
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-name: cat-animation;
+  */
+  animation: cat-animation 2s linear 0s infinite;
 }
